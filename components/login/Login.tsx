@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: -60,
         right: -60,
-        transform: [{ rotate: '-10deg' }]
+        transform: [{ rotate: '-15deg' }]
     }
 });
 export default Login;
