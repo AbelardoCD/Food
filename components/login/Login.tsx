@@ -18,12 +18,30 @@ import Logo from '../../assets/logo.png';
 import Burger from '../../assets/burger.png';
 
 import SecondaryButton from './../miscelaneous/secondaryButton/SecondaryButton';
+import axios from 'axios';
 const Login = () => {
     const [login, setLogin] = useState<{ email: string; password: string }>({
         email: '',
         password: ''
     });
 
+    const handleLogin = () => {
+        console.log('clcic');
+
+        axios
+            .post(`http://localhost:3000/api/login`, {
+                params: {
+                    name: login.email,
+                    password: login.password
+                }
+            })
+            .then((resp) => {
+                console.log(resp);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
     return (
         <View style={styles.mainContainer}>
             <View style={styles.headerContainer}>
@@ -66,7 +84,7 @@ const Login = () => {
                     />
                     <AntDesign name="unlock" size={24} color="#F3B2B2" />
                 </View>
-                <SecondaryButton title="Log in" />
+                <SecondaryButton eventOnClick={handleLogin} title="Log in" />
             </View>
         </View>
     );

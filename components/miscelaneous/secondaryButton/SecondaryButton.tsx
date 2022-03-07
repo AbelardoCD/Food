@@ -1,9 +1,15 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
-const SecondaryButton = ({ title }: { title: string }) => {
+const SecondaryButton = ({
+    title,
+    eventOnClick
+}: {
+    title: string;
+    eventOnClick: () => void;
+}) => {
     return (
-        <View style={styles.btn}>
+        <View onTouchStart={() => eventOnClick()} style={styles.btn}>
             <Text style={styles.text}> {title}</Text>
         </View>
     );
